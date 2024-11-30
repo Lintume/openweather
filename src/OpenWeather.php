@@ -107,7 +107,6 @@ class OpenWeather
      */
     private function parseCurrentResponse(string $response)
     {
-
         $struct = json_decode($response, true);
         if (!isset($struct['cod']) || $struct['cod'] != 200) {
             Log::error('OpenWeather - Error parsing current response.');
@@ -151,6 +150,7 @@ class OpenWeather
             ],
             'forecast' => [
                 'temp' => round($struct['main']['temp']),
+                'feels_like' => round($struct['main']['feels_like']),
                 'temp_min' => round($struct['main']['temp_min']),
                 'temp_max' => round($struct['main']['temp_max']),
                 'pressure' => round($struct['main']['pressure']),
