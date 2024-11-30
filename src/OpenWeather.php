@@ -155,7 +155,10 @@ class OpenWeather
                 'temp_max' => round($struct['main']['temp_max']),
                 'pressure' => round($struct['main']['pressure']),
                 'humidity' => round($struct['main']['humidity']),
-            ]
+            ],
+            'rain' => [
+                '1h' => (isset($struct['rain']['1h'])) ? $struct['rain']['1h'] : 0,
+            ],
         ];
     }
 
